@@ -1,5 +1,4 @@
-import { LucideLayoutDashboard, MessageCircle, Users } from "lucide-react";
-import Box from "next-auth/providers/box";
+import { Box, LucideLayoutDashboard, MessageCircle, Users } from "lucide-react";
 
 export interface LinkType {
   href: string;

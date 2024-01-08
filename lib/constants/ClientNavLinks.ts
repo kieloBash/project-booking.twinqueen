@@ -1,4 +1,8 @@
-import { LinkType } from "@/libs/interfaces/link.interface";
+export interface LinkType {
+  href: string;
+  label: string;
+  icon: any;
+}
 
 export const ClientNavLinks: LinkType[] = [
   {
