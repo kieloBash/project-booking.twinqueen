@@ -2,7 +2,6 @@ import AuthProvider from "@/providers/AuthProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import Navbar from "@/components/global/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,8 +22,7 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body className={`${poppins.className} flex flex-col relative w-full`}>
-          <Navbar />
-          <main className="w-full min-h-screen mt-20 flex flex-col">
+          <main className="w-full min-h-screen flex flex-col relative">
             {children}
           </main>
         </body>

@@ -22,7 +22,7 @@ export async function signInWithOAuth({ account, profile }: Params) {
       data: {
         email: profile.email,
         image: profile.picture,
-        role: "ADMIN",
+        role: "CUSTOMER",
       },
     });
   }

@@ -15,6 +15,6 @@ enum UserRoles {
 model User {
   id    String    @id @default(auto()) @map("_id") @db.ObjectId
   image String
-  role  UserRoles
+  role  UserRoles @default(CUSTOMER)
   email String    @unique
 }

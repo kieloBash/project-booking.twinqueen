@@ -5,10 +5,11 @@ import Logo from "./Logo";
 import NavLinks from "./NavLinks";
 import ProfileNav from "./ProfileNav";
 import SignInButton from "./SignInButton";
+import { User } from "@/interfaces/user.interface";
 
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
-  const userInfo = session?.user;
+  const userInfo = session?.user as User;
 
   return (
     <nav className="w-screen z-10 bg-white/80 backdrop-blur-md p-6 flex justify-between items-center h-20 fixed top-0 left-0">
