@@ -13,8 +13,39 @@ enum UserRoles {
 }
 
 model User {
-  id    String    @id @default(auto()) @map("_id") @db.ObjectId
-  image String
-  role  UserRoles @default(CUSTOMER)
-  email String    @unique
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  image     String
+  role      UserRoles   @default(CUSTOMER)
+  email     String      @unique
+  inquiries Inquiries[]
+}
+
+model Package {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  location   String
+  price      BigInt
+  inclusions String?
+  exclusions String?
+  available  Boolean     @default(true)
+  inquiries  Inquiries[]
+}
+
+enum InquiryStatus {
+  PENDING
+  TO_CALL
+  CONFIRMED
+  DECLINED
+}
+
+model Inquiries {
+  id        String        @id @default(auto()) @map("_id") @db.ObjectId
+  guests    Int
+  startDate DateTime
+  status    InquiryStatus
+
+  customer   User    @relation(fields: [customerId], references: [id])
+  customerId String  @db.ObjectId
+  package    Package @relation(fields: [packageId], references: [id])
+  packageId  String  @db.ObjectId
 }

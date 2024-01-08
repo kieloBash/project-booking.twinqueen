@@ -8,22 +8,22 @@ export interface LinkType {
 
 export const AdminNavLinks: LinkType[] = [
   {
-    href: "/admin/dashboard",
+    href: "/dashboard",
     label: "dashboard",
     icon: LucideLayoutDashboard,
   },
   {
-    href: "/admin/packages",
+    href: "/packages",
     label: "packages",
     icon: Box,
   },
   {
-    href: "/admin/inquiries",
+    href: "/inquiries",
     label: "inquiries",
     icon: MessageCircle,
   },
   {
-    href: "/admin/users",
+    href: "/users",
     label: "users",
     icon: Users,
   },
