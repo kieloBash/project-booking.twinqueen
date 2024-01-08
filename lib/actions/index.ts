@@ -17,6 +17,14 @@ interface Params {
 export async function signInWithOAuth({ account, profile }: Params) {
   const user = await prisma.user.findFirst({ where: { email: profile.email } });
 
-  if (!user) return false;
+  if (!user) {
+    await prisma.user.create({
+      data: {
+        email: profile.email,
+        image: profile.picture,
+        role: "ADMIN",
+      },
+    });
+  }
   return true;
 }

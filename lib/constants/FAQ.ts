@@ -1,4 +1,7 @@
-import { FAQType } from "@/libs/interfaces/faq.interface";
+export interface FAQType {
+  q: string;
+  a: string;
+}
 
 const FAQ: FAQType[] = [
   {
