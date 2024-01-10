@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { pageLimit } from "@/utils/constants/data/pagelimit";
+// import { pageLimit } from "@/utils/constants/data/pagelimit";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
@@ -27,7 +27,7 @@ export function DataTablePagination<TData>({
       </div>
       <div className="flex items-center space-x-6 lg:space-x-8">
         <div className="flex w-[100px] items-center justify-center text-sm font-medium">
-          Page {page} of {Math.floor(total / pageLimit) + 1}
+          {/* Page {page} of {Math.floor(total / pageLimit) + 1} */}
         </div>
         <div className="flex items-center space-x-2">
           <Link
@@ -53,7 +53,7 @@ export function DataTablePagination<TData>({
               variant="outline"
               className="w-8 h-8 p-0"
               onClick={() => table.nextPage()}
-              disabled={Number(page) === Math.floor(total / pageLimit) + 1}
+              // disabled={Number(page) === Math.floor(total / pageLimit) + 1}
             >
               <span className="sr-only">Go to next page</span>
               <ChevronRightIcon className="w-4 h-4" />
