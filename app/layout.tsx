@@ -2,6 +2,7 @@ import AuthProvider from "@/providers/AuthProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,13 +21,17 @@ export default function RootLayout({
 }) {
   return (
     <AuthProvider>
-      <html lang="en">
-        <body className={`${poppins.className} flex flex-col relative w-full`}>
-          <main className="w-full min-h-screen flex flex-col relative">
-            {children}
-          </main>
-        </body>
-      </html>
+      <QueryProvider>
+        <html lang="en">
+          <body
+            className={`${poppins.className} flex flex-col relative w-full`}
+          >
+            <main className="relative flex flex-col w-full min-h-screen">
+              {children}
+            </main>
+          </body>
+        </html>
+      </QueryProvider>
     </AuthProvider>
   );
 }

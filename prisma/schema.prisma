@@ -20,15 +20,22 @@ model User {
   inquiries Inquiries[]
 }
 
+enum PackageStatus {
+  Available
+  Unavailable
+}
+
 model Package {
-  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
   name       String
   location   String
-  price      BigInt
+  price      Int
   inclusions String[]
   exclusions String[]
-  available  Boolean     @default(true)
-  inquiries  Inquiries[]
+  dates      DateTime[]
+
+  status    PackageStatus @default(Available)
+  inquiries Inquiries[]
 }
 
 enum InquiryStatus {
